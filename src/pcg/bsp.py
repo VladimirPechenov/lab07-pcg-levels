@@ -34,6 +34,8 @@ class Leaf:
 
 
 def generate(width=64, height=48, seed=0, min_leaf=10, depth=5) -> np.ndarray:
+    if min(width, height) < 6 or min_leaf < 6 or depth < 0:
+        raise ValueError("width, height, min_leaf must be >= 6; depth must be >= 0")
     rng = random.Random(seed)
     grid = np.full((height, width), WALL, dtype=np.int8)
     root = Leaf(0, 0, width, height)
@@ -47,13 +49,13 @@ def generate(width=64, height=48, seed=0, min_leaf=10, depth=5) -> np.ndarray:
     def carve_room(leaf: Leaf):
         rw, rh = rng.randint(4, max(4, leaf.w - 2)), rng.randint(4, max(4, leaf.h - 2))
         rx, ry = leaf.x + rng.randint(1, max(1, leaf.w - rw - 1)), leaf.y + rng.randint(1, max(1, leaf.h - rh - 1))
-        grid[ry:ry + rh, rx:rx + rw] = FLOOR
+        grid[ry : ry + rh, rx : rx + rw] = FLOOR
         leaf.room = (rx + rw // 2, ry + rh // 2)
 
     def connect(a: tuple, b: tuple):
         (x1, y1), (x2, y2) = a, b
-        grid[y1, min(x1, x2):max(x1, x2) + 1] = FLOOR
-        grid[min(y1, y2):max(y1, y2) + 1, x2] = FLOOR
+        grid[y1, min(x1, x2) : max(x1, x2) + 1] = FLOOR
+        grid[min(y1, y2) : max(y1, y2) + 1, x2] = FLOOR
 
     def center(leaf: Leaf) -> tuple:
         if leaf.room:
