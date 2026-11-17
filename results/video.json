@@ -1,0 +1,14 @@
+{
+  "file": "lab07_demo.mp4",
+  "fps": 10,
+  "frames": 970,
+  "seconds": 97,
+  "maps": 30,
+  "seeds": "0..9",
+  "variants": [
+    "bsp",
+    "ca",
+    "ca_connected"
+  ],
+  "description": "BFS path animation over actual grids, no audio"
+}

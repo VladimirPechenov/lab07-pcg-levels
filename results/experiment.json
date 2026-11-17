@@ -1,0 +1,27 @@
+{
+  "python": "3.12.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "numpy": "2.5.5",
+  "pandas": "3.1.1",
+  "n": 100,
+  "seeds": "0..99",
+  "width": 64,
+  "height": 48,
+  "bsp": {
+    "min_leaf": 10,
+    "depth": 5,
+    "min_room": 4
+  },
+  "ca": {
+    "fill": 0.45,
+    "iterations": 5,
+    "birth": 5,
+    "survive": 4
+  },
+  "playable": {
+    "min_reach": 0.6,
+    "min_path": 20
+  },
+  "std_ddof": 0,
+  "timing": "perf_counter_ns; generation only; CA-connected includes repair; no warmup"
+}
