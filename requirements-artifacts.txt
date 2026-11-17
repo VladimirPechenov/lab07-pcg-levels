@@ -1,0 +1,4 @@
+reportlab==5.1.0
+pymupdf==2.1
+pillow==13.0.0
+imageio-ffmpeg==0.8.1
