@@ -23,3 +23,7 @@
 *.mat text eol=lf
 *.meta text eol=lf
 *.cs text eol=lf diff=csharp
+
+# Small Python experiment images are stored directly in Git.
+/results/**/*.png -filter -diff -merge
+/results/*.png -filter -diff -merge
